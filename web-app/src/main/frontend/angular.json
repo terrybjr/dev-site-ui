@@ -13,10 +13,11 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "baseHref": "/app/",
             "customWebpackConfig": {
               "path": "./webpack.config.js"
             },
-            "outputPath": "dist/dev-site-ui",
+            "outputPath": "../../../WebContent/app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [

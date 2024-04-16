@@ -48,44 +48,49 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.15.0</version>
+                <configuration>
+                    <!-- tag::working-dir[] -->
+                    <workingDirectory>src/main/frontend</workingDirectory>
+                    <!-- end::working-dir[] -->
+                </configuration>
                 <executions>
+                    <!-- tag::node-resource-install[] -->
                     <execution>
-                        <id>npm-install</id>
-                        <phase>generate-sources</phase>
+                        <id>install node and npm</id>
                         <goals>
-                            <goal>exec</goal>
+                            <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <executable>npm</executable>
-                            <workingDirectory>${project.basedir}/angular</workingDirectory>
-                            <arguments>
-                                <argument>install</argument>
-                            </arguments>
+                            <nodeVersion>v20.12.2</nodeVersion>
+                            <npmVersion>8.5.0</npmVersion>
                         </configuration>
                     </execution>
+                    <!-- end::node-resource-install[] -->
                     <execution>
-                        <id>ng build</id>
-                        <phase>compile</phase>
+                        <id>npm install</id>
                         <goals>
-                            <goal>exec</goal>
+                            <goal>npm</goal>
+                        </goals>
+                        <!-- Optional configuration for running
+                        any npm command -->
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <!-- tag::node-resource-build[] -->
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <executable>ng</executable>
-                            <workingDirectory>${project.basedir}/angular</workingDirectory>
-                            <arguments>
-                                <argument>build</argument>
-                                <argument>-c production</argument>
-                                <argument>--aot</argument>
-                                <argument>--base-href</argument>
-                                <argument>/</argument>
-                                <argument>--output-path</argument>
-                                <argument>${project.build.directory}/${project.build.finalName}</argument>
-                            </arguments>
+                            <arguments>run build</arguments>
                         </configuration>
                     </execution>
+                    <!-- end::node-resource-build[] -->
                 </executions>
             </plugin>
         </plugins>
