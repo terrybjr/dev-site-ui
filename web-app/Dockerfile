@@ -15,3 +15,5 @@ RUN ln -s /opt/ol/wlp/usr/servers/defaultServer /config/ \
 
 # This script will add the application and any required features and runtimes to the image
 COPY --chown=1001:0  target/btd-app-ui.war /config/dropins/
+
+EXPOSE 9081 9444
