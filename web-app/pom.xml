@@ -87,7 +87,7 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <arguments>run build</arguments>
+                            <arguments>run build -- --configuration production</arguments>
                         </configuration>
                     </execution>
                     <!-- end::node-resource-build[] -->

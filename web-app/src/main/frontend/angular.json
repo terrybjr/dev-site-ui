@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "baseHref": "/",
+            "baseHref": "/app/",
             "customWebpackConfig": {
               "path": "./webpack.config.js"
             },
