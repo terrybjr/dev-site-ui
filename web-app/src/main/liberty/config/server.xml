@@ -7,4 +7,5 @@
     <webApplication id="btd-app-ui"
                     location="btd-app-ui.war"
                     contextRoot="/"/>
+    <applicationManager autoExpand="true" defaultDropinEnabled="false"/>
 </server>
