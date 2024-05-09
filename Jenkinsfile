@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     // Run the Docker container from the 'btd-app:latest' image
-                    sh 'docker run -d -p 9081:9081 btd-ui:latest'
+                    sh 'docker run --restart unless-stopped -d -p 9081:9081 btd-ui:latest'
                 }
             }
         }
