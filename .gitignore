@@ -41,3 +41,4 @@ build/
 web-app/angular/.editorconfig
 web-app/angular/.gitattributes
 /web-app/angular/node_modules
+/web-app/angular/dist
